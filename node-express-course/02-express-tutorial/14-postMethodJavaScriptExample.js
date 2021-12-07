@@ -34,3 +34,7 @@ app.post('/login', (req, res) =>{
         res.status(200).send('Please Enter Credentials')
     }
 })
+
+app.listen(port, () =>{
+    console.log(`Listening on port ${port}.....`)
+})
