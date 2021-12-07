@@ -63,7 +63,6 @@ app.put('/api/people/:id',(req, res)=> {
     res.status(200).json({success: true, data: newPeople})
 })
 
-
 app.listen(port, () =>{
     console.log(`Listening on port ${port}.....`)
 })
