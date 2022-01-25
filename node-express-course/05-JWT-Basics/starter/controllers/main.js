@@ -36,9 +36,15 @@ if(!authHeader || !authHeader.startsWith('Bearer ')) {
 
 const token = authHeader.split(' ') [1]
 
-
+try {
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
     const luckyNumber = Math.floor(Math.random() *100)
-    res.status(200).json({msg:`Hello, Thomas`, secret:`Here is your lucky number ${luckyNumber}`})
+    res.status(200).json({msg:`Hello, ${decoded.username}`, secret:`Here is your lucky number ${luckyNumber}`})
+    
+} catch (error) {
+    throw new CustomAPIError('Not authorized to access this route',401)
+}
+
 }
 
 module.exports = {login, dashboard}
