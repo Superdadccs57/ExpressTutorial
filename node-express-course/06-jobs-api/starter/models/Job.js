@@ -1,4 +1,4 @@
-const mongoose = require('mongooose')
+const mongoose = require('mongoose')
 
 const JobSchema = new mongoose.Schema({
     company:{
@@ -8,7 +8,7 @@ const JobSchema = new mongoose.Schema({
     },
     position:{
         type:String,
-        required: [true, 'Please provide company name'],
+        required: [true, 'Please provide a postion'],
         maxlength:100,
     },
     Status: {
