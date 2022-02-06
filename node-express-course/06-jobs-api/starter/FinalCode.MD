@@ -1,1 +1,1 @@
-There is some final coding updates for swagger and heroku that can be found by cloning the heroku version of the project!
+There are some final coding updates for Swagger and Heroku that can be found by cloning the Heroku version of the project!
