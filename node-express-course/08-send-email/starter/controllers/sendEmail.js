@@ -29,9 +29,8 @@ const sendEmail = async (req, res) => {
   const msg = {
     to: 'crazytrain401@hotmail.com',
     from: 'fentiewebdevelopment@shaw.ca',
-    subject: 'Hello Test',
-    text: 'Hello World?',
-    html: '<h1>Hello World!</h1>',
+    subject: 'Hello Test2',
+    text: 'This email is to test if it goes straight to the inbox instead of the junk mail box',
   };
   const info = await sendGrid.send(msg);
   res.json(info);
