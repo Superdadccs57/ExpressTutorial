@@ -1,1 +1,1 @@
-console.log('E-Commerce API');
+console.log('app has started!');
