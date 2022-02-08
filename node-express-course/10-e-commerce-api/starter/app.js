@@ -9,16 +9,19 @@ const express = require('express');
 const app = express();
 
 // Rest of Packages
-const morgan = require('morgan')
+const morgan = require('morgan');
 
 // Database
 const connectDB = require('./db/connect');
+
+// Routers
+const authRouter = require('./routes/authRoutes');
 
 // Middleware
 const errorHandlerMiddleware = require('./middleware/error-handler');
 const notFoundMiddleware = require('./middleware/not-found');
 
-app.use(morgan('tiny'))
+app.use(morgan('tiny'));
 app.use(express.json());
 
 //Routes
@@ -26,9 +29,10 @@ app.get('/', (req, res) => {
   res.send('eCommerce Project');
 });
 
+app.use('/api/v1/auth', authRouter);
+
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
-
 
 // Server
 const port = process.env.PORT || 5000;
