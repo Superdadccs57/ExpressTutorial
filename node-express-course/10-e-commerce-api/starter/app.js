@@ -10,6 +10,7 @@ const app = express();
 
 // Rest of Packages
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser')
 
 // Database
 const connectDB = require('./db/connect');
@@ -23,10 +24,16 @@ const notFoundMiddleware = require('./middleware/not-found');
 
 app.use(morgan('tiny'));
 app.use(express.json());
+app.use(cookieParser());
 
 //Routes
 app.get('/', (req, res) => {
+  console.log(req.cookies);
   res.send('eCommerce Project');
+});
+app.get('/api/v1', (req, res) => {
+  console.log(req.cookies);
+  res.send('Logging Cookies');
 });
 
 app.use('/api/v1/auth', authRouter);
